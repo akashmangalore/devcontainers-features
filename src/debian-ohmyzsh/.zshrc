@@ -73,7 +73,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git volta github gitfast colorize battery aws aliases alias-finder)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.purepower
 
 # User configuration
 
