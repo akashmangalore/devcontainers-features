@@ -1,0 +1,26 @@
+{
+    "id": "debian-ohmyzsh",
+    "version": "1.0.0",
+    "name": "Oh My Zsh Shell Environment",
+    "description": "Installs Oh My Zsh with powerlevel10k theme and optional Nerd Fonts",
+    "options": {
+        "theme": {
+            "type": "string",
+            "default": "powerlevel10k/powerlevel10k",
+            "description": "ZSH theme to install"
+        },
+        "plugins": {
+            "type": "string",
+            "default": "",
+            "description": "Comma-separated list of plugins to install"
+        },
+        "installFonts": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install FiraCode Nerd Fonts"
+        }
+    },
+    "containerEnv": {
+        "SHELL": "/bin/zsh"
+    }
+}

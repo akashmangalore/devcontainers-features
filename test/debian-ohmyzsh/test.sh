@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This test file will be executed against an auto-generated devcontainer.json that
-# includes the 'color' Feature with no options.
+# includes the 'debian-ohmyzsh' Feature with no options.
 #
 # For more information, see: https://github.com/devcontainers/cli/blob/main/docs/features/test.md
 #
@@ -9,14 +9,17 @@
 # {
 #    "image": "<..some-base-image...>",
 #    "features": {
-#      "color": {}
+#      "debian-ohmyzsh": {}
 #    },
 #    "remoteUser": "root"
 # }
 #
 # Thus, the value of all options will fall back to the default value in the
 # Feature's 'devcontainer-feature.json'.
-# For the 'color' feature, that means the default favorite color is 'red'.
+# For the 'debian-ohmyzsh' feature, that means:
+# - theme: "powerlevel10k/powerlevel10k"
+# - plugins: ""
+# - installFonts: true
 #
 # These scripts are run as 'root' by default. Although that can be changed
 # with the '--remote-user' flag.
@@ -24,7 +27,7 @@
 # This test can be run with the following command:
 #
 #    devcontainer features test    \ 
-#               --features color   \
+#               --features debian-ohmyzsh   \
 #               --remote-user root \
 #               --skip-scenarios   \
 #               --base-image mcr.microsoft.com/devcontainers/base:ubuntu \
@@ -32,16 +35,11 @@
 
 set -e
 
-# Optional: Import test library bundled with the devcontainer CLI
-# See https://github.com/devcontainers/cli/blob/HEAD/docs/features/test.md#dev-container-features-test-lib
-# Provides the 'check' and 'reportResults' commands.
 source dev-container-features-test-lib
 
-# Feature-specific tests
-# The 'check' command comes from the dev-container-features-test-lib. Syntax is...
-# check <LABEL> <cmd> [args...]
-check "validate favorite color" color | grep 'my favorite color is red'
+check "oh-my-zsh installation" test -d "$HOME/.oh-my-zsh"
+check "powerlevel10k theme installed" test -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
+check "zsh is default shell" echo "$SHELL" | grep "/bin/zsh"
+check "zshrc configured with theme" grep -q 'ZSH_THEME="powerlevel10k/powerlevel10k"' "$HOME/.zshrc"
 
-# Report result
-# If any of the checks above exited with a non-zero exit code, the test will fail.
 reportResults
