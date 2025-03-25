@@ -7,7 +7,7 @@ Installs Oh My Zsh with powerlevel10k theme and optional Nerd Fonts
 
 ```json
 "features": {
-    "ghcr.io/akashmangalore/devcontainers-features/debian-ohmyzsh:1": {}
+    "ghcr.io/akashmangalore/devcontainers-features/debian-ohmyzsh:2": {}
 }
 ```
 
