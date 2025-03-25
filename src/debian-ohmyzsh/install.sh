@@ -47,7 +47,7 @@ if [[ "${INSTALLFONTS}" == "true" ]]; then
     mkdir -p "${FONTS_DIR}"
     curl -fsSL -o /tmp/FiraCode.zip \
         https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/FiraCode.zip
-    unzip -q /tmp/FiraCode.zip -d "${FONTS_DIR}"
+    unzip -q -o /tmp/FiraCode.zip -d "${FONTS_DIR}"
     rm -f /tmp/FiraCode.zip
     fc-cache -f
 fi
