@@ -1,6 +1,6 @@
 {
     "id": "debian-ohmyzsh",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "Oh My Zsh Shell Environment",
     "description": "Installs Oh My Zsh with powerlevel10k theme and optional Nerd Fonts",
     "options": {
