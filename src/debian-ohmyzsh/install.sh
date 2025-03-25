@@ -11,6 +11,8 @@ apt-get update && \
     wget \
     curl \
     unzip \
+    psmisc \
+    iputils-ping \
     fonts-powerline \
     && rm -rf /var/lib/apt/lists/*
 
