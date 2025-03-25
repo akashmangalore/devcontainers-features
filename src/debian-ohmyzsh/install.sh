@@ -58,6 +58,11 @@ plugins=(${PLUGINS//,/ })
 source "\$ZSH/oh-my-zsh.sh"
 EOF
 
+# Copy custom zsh configuration files
+echo_blue "Copying custom .zshrc and .p10k.zsh..."
+cp .zshrc "${HOME}/.zshrc"
+cp .p10k.zsh "${HOME}/.p10k.zsh"
+
 if [[ -f "${HOME}/.purepower" ]]; then
     echo "source ~/.purepower" >> "${HOME}/.zshrc"
 fi
